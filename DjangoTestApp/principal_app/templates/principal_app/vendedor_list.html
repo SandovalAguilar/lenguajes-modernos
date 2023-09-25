@@ -1,0 +1,46 @@
+
+<link rel="stylesheet"
+href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-
+theme.min.css">
+<h1>Vendedores</h1>
+<table class="table table-hover">
+<thead>
+<tr>
+<th scope="col">ID</th>
+<th scope="col">Nombre</th>
+<th scope="col">View</th>
+<th scope="col">Edit</th>
+<th scope="col">Delete</th>
+</tr>
+</thead>
+<tbody>
+{% for vendedor in object_list %}
+<tr>
+<td>{{ vendedor.id_vendedor }}</td>
+<td>{{ vendedor.nombre }}</td>
+<td>
+<a href="{% url "vendedor_list" vendedor.id_vendedor %}"
+class="btn btn-info " >
+<span class="glyphicon glyphicon-edit"></span> Ver detalle
+</a>
+</td>
+<td>
+<a href="{% url "vendedor_update" vendedor.id_vendedor %}"
+class="btn btn-primary">
+<span class="glyphicon glyphicon-pencil"></span> Editar
+</a>
+</td>
+<td>
+<a href="{% url "vendedor_delete" vendedor.id_vendedor %}"
+class="btn btn-danger">
+<span class="glyphicon glyphicon-trash"></span> Eliminar
+</a>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<a href="{% url "vendedor_create" %}" class="btn btn-success"> <span
+class="glyphicon glyphicon-plus"></span>New</a>

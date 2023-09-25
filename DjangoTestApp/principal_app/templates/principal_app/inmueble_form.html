@@ -1,0 +1,10 @@
+<link rel="stylesheet"
+href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-
+theme.min.css">
+<h1>Inmueble</h1>
+<form method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" class="btn btn-primary" value="Submit" />
+</form>

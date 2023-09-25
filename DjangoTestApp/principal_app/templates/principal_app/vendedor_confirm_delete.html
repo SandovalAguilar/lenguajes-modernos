@@ -1,0 +1,10 @@
+<link rel="stylesheet"
+href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-
+theme.min.css">
+<h1>Vendedor Delete</h1>
+<form method="post">{% csrf_token %}
+Seguro que deseas eliminar al vendedor: "{{ object }}" ?
+<input type="submit" class="btn btn-danger" value="Eliminar" />
+</form>

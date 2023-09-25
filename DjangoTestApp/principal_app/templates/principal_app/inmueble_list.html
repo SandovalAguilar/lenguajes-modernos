@@ -1,0 +1,61 @@
+<link rel="stylesheet"
+href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-
+theme.min.css">
+<h1>Inmuebles</h1>
+<a href="{% url "inmueble_create" %}" class="btn btn-success"> <span
+class="glyphicon glyphicon-plus"></span>New</a>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Fecha Alta</th>
+    <th scope="col">Tipo</th>
+    <th scope="col">Operación</th>
+    <th scope="col">Provincia</th>
+    <th scope="col">Superficie</th>
+    <th scope="col">Precio Venta</th>
+    <th scope="col">Fecha Venta</th>
+    <th scope="col">Vendedor</th>
+    <th scope="col">View</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for inmueble in object_list %}
+    <tr>
+    <td>{{ inmueble.id_inmueble }}</td>
+    <td>{{ inmueble.fecha_alta | date:"d/m/Y" }}</td>
+    <td>{{ inmueble.id_tipo }}</td>
+    <td>{{ inmueble.id_operacion }}</td>
+    <td>{{ inmueble.id_provincia }}</td>
+    <td>{{ inmueble.superficie }}</td>
+    <td>{{ inmueble.precio_venta }}</td>
+    <td>{{ inmueble.fecha_venta | date:"d/m/Y" }}</td>
+    <td>{{ inmueble.id_vendedor }}</td>
+    <td>
+    <a href="{% url "inmueble_list" inmueble.id_inmueble %}"
+    class="btn btn-info " >
+    <span class="glyphicon glyphicon-edit"></span> Ver detalle
+    </a>
+    </td>v
+
+    <td>
+        <a href="{% url "inmueble_update" inmueble.id_inmueble %}"
+        class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span> Editar
+        </a>
+        </td>
+        <td>
+        <a href="{% url "inmueble_delete" inmueble.id_inmueble %}"
+        class="btn btn-danger">
+        <span class="glyphicon glyphicon-trash"></span> Eliminar
+        </a>
+        </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
